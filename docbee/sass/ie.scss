@@ -1,0 +1,85 @@
+/* Welcome to Compass. Use this file to write IE specific override styles.
+ * Import this file using the following HTML or equivalent:
+ * <!--[if IE]>
+ *   <link href="/css/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
+ * <![endif]--> */
+
+  .countdown-show4 .countdown-section {
+    width: 21.75%; 
+  }
+
+	#mc_embed_signup {
+		input[type="text"]{
+	    height: 50px;
+	    width: 555px;
+	    background:none;
+	    border:2px solid #fff;
+	    border-radius:2px;
+	    color: #fefefe;
+	    padding:0 15px;
+	    font-weight: 300;
+	    font-size: 1.3em;
+	    letter-spacing: -0.019em;
+	  }
+	}
+
+
+
+@media (max-width: 1199px) {
+
+
+    .countdown-show4 .countdown-section {
+      width: 23.06%;
+    }
+		#mc_embed_signup {
+	    input[type="text"]{
+		    width: 575px;
+		  }
+		}
+  }
+
+
+
+
+@media (max-width: 991px) {
+
+    .countdown-show4 .countdown-section {
+      width: 157px;
+    }
+
+    #mc_embed_signup{
+
+		  input[type="text"]{
+		    width: 532px;
+				letter-spacing: -0.059em;
+		  }
+		  input[type="submit"]{
+		    width: 157px;
+				margin-right: 1px;
+				letter-spacing: 0.01em;
+				padding-top: 0px;
+		  }
+		}
+  }
+
+
+
+@media (max-width: 767px) {
+
+  .countdown-show4 .countdown-section {
+    width: 138px;
+  }
+	
+	#mc_embed_signup {
+		input[type="text"]{
+		  width: 290px;
+			margin: 0 auto;
+			display: block;
+			margin-bottom: 20px;
+			height: 40px;
+			padding: 0 10px;
+			letter-spacing: 0.032em;
+			font-size: 0.95em;
+		}
+	}
+}

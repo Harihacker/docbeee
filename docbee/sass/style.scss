@@ -1,0 +1,1382 @@
+/*
+Theme Name: SimKors
+Theme URI: http://template.SimKors.itembridge.com/
+Author: InfoStyle
+Author URI: http://themeforest.net/user/theme_bridge
+Description: SimKors responsive theme
+Version: 1.0.4
+License: ThemeForest Regular & Extended License
+License URI: http://themeforest.net/licenses/regular-extended
+*/
+/*------------------------------------------------------------------
+[Table of contents]
+
+1. Include Animate CSS...............................(Line 68)
+2. Include Typography CSS............................(Line 69)
+3. Body .............................................(Line 85)
+  3.1 Block for Background Youtube Video.............(Line 95)
+  3.2 Preloader .....................................(Line 111)
+
+  4. Block Wrapper ..................................(Line 156)
+    4.1 Block for backgrounds........................(Line 165)
+      4.1.1 Background Parts.........................(Line 201)
+    4.2 RS Slider ...................................(Line 245)
+    4.3 Links up down the second page................(Line 296)
+    4.4 Box for background first page................(Line 375)
+    4.5 Top-inset....................................(Line 394)
+
+    5. Block First-page..............................(Line 401)
+      5.1 Logo.......................................(Line 410)
+      5.2 Coming Soon Title..........................(Line 422)
+      5.3 DefaultCountdown...........................(Line 442)
+      5.4 Subscribe Form.............................(Line 505)
+      5.5 3d Slider .................................(Line 640)
+      5.6 Soc-icons..................................(Line 654)
+
+    6. Second-Pages..................................(Line 702)
+      6.1 Animation down up page.....................(Line 724)
+      6.2 Special page background with video.........(Line 746)
+      6.3 Animate move to down page..................(Line 756)
+      6.4 Tabs pages.................................(Line 798)
+        6.4.1 Tab navigation ........................(Line 805)
+        6.4.1 Tab-content ...........................(Line 856)
+
+    7. General Style About & Contacts................(Line 887)
+
+    8. About Page....................................(Line 907)
+      8.1 Block Personnel............................(Line 911)
+      8.2 Block data info............................(Line 959)
+      8.3 CaruFredSel................................(Line 980)
+
+    9. Contacts......................................(Line 1084)
+      9.1 Contactform................................(Line 1087)
+      9.2 Block Maps.................................(Line 1185)
+
+    10. Under-contruction Page........................(Line 1195)
+      10.1 BLURE Side style...........................(Line 1230)
+
+    11. FIX iPad;.*CPU.*OS 7..........................(Line 1256)
+
+    12. RETINA.......................................(Line 1284)
+    13. Include Responsive CSS.......................(Line 1307)
+    14. Include Screen CSS (3d slider)...............(Line 1308)
+
+-------------------------------------------------------------------*/
+
+// ----------------------------
+// INCLUDES
+@import "animate";
+@import "typography";
+
+// ----------------------------
+
+
+@mixin transition($transition1: 0.1s){
+  transition: all $transition1 ease-in-out $transition1;
+}
+
+$myWhite: #fefefe;
+ 
+html {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  color: $myWhite; 
+  font-size: 100%;
+  height: 100%;
+  overflow:hidden;
+  position:fixed;
+  width: 100%;
+
+}
+
+#svg-image-blur{
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 0;
+}
+
+.blur-page { 
+  -webkit-transition: all 0.5s ease-out; 
+  -moz-transition: all 0.5s ease-out; 
+  -ms-transition: all 0.5s ease-out; 
+  -o-transition: all 0.5s ease-out; 
+  transition: all 0.5s ease-out;
+
+  -webkit-filter: blur(10px); 
+  filter: url(#blur-effect-1); 
+}  
+/* Block for Background Youtube Video
+-------------------------------------------------------------------------*/
+.bg-box {
+  &.bg-youtube-video{
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: cover !important;
+    height: 100%;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+
+  }
+}
+
+/* preloader 
+-------------------------------------------------------------------------*/
+
+.preloader {
+  background: #000;
+  height: 100%;
+  left: 0;
+  position:absolute;
+  top: 0;
+  width: 100%;
+  z-index: 999999;
+
+  .inner-preloader{
+    height: 100%;
+    width: 100%;
+  }
+}
+/* styles of animated logo
+------------------------------------*/
+#logo-proloader {
+  height: 100px;
+  left:50%;
+  margin-left: -50px;
+  margin-top: -50px;
+  position:absolute;
+  top:50%;
+  width: 100px;
+  z-index: 9999;
+
+  img {
+    animation-name: spin-logo;
+    animation-duration: 4000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+  }
+}
+
+@keyframes spin-logo {
+    from {
+        transform:rotateY(0deg);
+    }
+    to {
+        transform:rotateY(360deg);
+    }
+}
+
+
+/* Block Wrapper
+-------------------------------------------------------------------------*/
+#wrapper {
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  z-index: 0;
+  
+  /* block for backgrounds 
+  -------------------------------------------------------------------------*/
+  .blured-box,
+  .bg-box {
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    left: 0;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    .overlay{
+      height: 100%;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 100%;
+      z-index: 2;
+    }
+  }
+  .blured-box {
+    opacity: 0;
+    z-index: 0;
+  }
+  .bg-video video {
+    height: auto;
+    max-width: inherit;
+    min-height: 100%;
+    min-width: 100%;
+    width: auto;
+  }
+
+}
+
+/* Background Parts 
+---------------------------------------------------*/
+.part-1 {
+  background: url(../images/background/slide-1.jpg);
+}
+
+.part-2 {
+  background: url(../images/background/under.jpg); 
+}
+.part-7 {
+  background: url(../images/background/image.jpg); 
+}
+// Default pattern
+.my-pattern {
+  .overlay {
+    background: url(../images/background/pattern.png);
+    background-repeat:repeat;
+  }
+}
+
+/* style gradient */
+.part-3 {
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#009bfd+0,337362+100 */
+  background: rgb(0,155,253); /* Old browsers */
+  background: -moz-linear-gradient(top,  rgba(0,155,253,1) 0%, rgba(51,115,98,1) 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top,  rgba(0,155,253,1) 0%,rgba(51,115,98,1) 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom,  rgba(0,155,253,1) 0%,rgba(51,115,98,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#009bfd', endColorstr='#337362',GradientType=0 ); /* IE6-9 */
+}
+
+/* style color bg */
+.part-4 {
+  background: #8b84a4;
+}
+
+
+
+/* RS Slider 
+-------------------------------------------------------------------------*/
+.rslides {
+  height: 100%;
+  list-style: none;
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+  position: relative;
+  width: 100%;
+  }
+
+.rslides li {
+  -webkit-backface-visibility: hidden;
+  display: none;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+
+  background-position: center;
+  background-repeat:no-repeat;
+  background-size:cover !important;
+  }
+
+.rslides li:first-child {
+  display: block;
+  float: left;
+  position: relative;
+  }
+
+.rslides img {
+  border: 0;
+  display: block;
+  float: left;
+  height: auto;
+  width: 100%;
+  }
+
+  #rslides-1 {
+    z-index: 1;
+  }
+  #rslides-2 {
+    left:0;
+    position:absolute;
+    top: 0;
+    z-index: 0;
+  }
+
+
+/* Links up down the second page
+-------------------------------------------------------------------------*/
+.link {
+  @include transition;
+  bottom: 0px;
+  font-size: 2.7em;
+  height: 60px;
+  left:0;
+  position:absolute;
+  text-align: center;
+  width: 100% !important;
+  z-index: 999;
+  box-sizing: border-box; 
+  display: table;
+
+  #top-link {
+    display: none;
+  }
+  #top-link {
+    cursor:pointer;
+    .top-arrow {
+      background:url(../images/arrow/down-white.svg);
+      background-position: 0 0;
+      background-repeat: no-repeat;
+      background-size:cover;
+      height: 32px;
+      margin: 15px auto 12px;
+      width: 53px;
+  }
+
+    &.active {
+      display: block;
+    }
+  }
+  .bottom-link-icon {
+    background:url(../images/arrow/up-white.svg) ;
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    background-size:cover;
+    cursor: pointer;
+    height: 32px;
+    margin: 15px auto 0;
+    padding-top: 8px;
+    width: 53px;
+
+  }
+  #bottom-link {
+    cursor: pointer;
+    display: none;
+    height: 59px;
+    &.active { 
+      display: block;
+    }
+  }
+
+  .inner-box {
+    border-collapse: collapse;
+    border-spacing: 0;
+    box-sizing: border-box; 
+    display: table-cell;
+    height: 100%;
+    margin: 0px;
+  }
+  
+  .second-box {
+      vertical-align: top;
+    .container {
+      height: 100%;
+    }
+  }
+  &.no-bg {
+    .second-box {
+      background: rgba(0, 0, 0, 0.35);
+    }
+  }
+
+}  
+
+
+/* Box for background first page
+-------------------------------------------------------------------------*/
+
+.bg-block {
+  height: 100%;
+  left:0;
+  padding-top:60px;
+  position:absolute; 
+  top: 0;
+  width: 100%;
+  z-index: 76;
+
+  .container {
+    background: rgba(0, 0, 0, 0.4);
+    height: 100%;
+  }
+
+}
+
+/* Top-inset
+-------------------------------------------------------------------------*/
+#top-inset {
+  height: 60px;
+}
+
+/*-------------------------------------------------------------------------------------------*/
+/*--------------------------------- Block First-page ----------------------------------------*/
+/*-------------------------------------------------------------------------------------------*/
+
+#first-page {
+  height: 100%;
+  overflow-y: auto ;
+  position: relative;
+  z-index: 99;
+
+  /* Logo 
+  -------------------------------------------------------------------------*/
+  .logo {
+    height: 120px;
+    margin: 67px auto 0px;
+    max-width: 100px;
+    img {
+      height: auto;
+      width: 100%;
+    }
+  }
+  
+  /* Coming Soon Title
+  ----------------------------------------------------------------------*/
+  .coming-soon {
+    display: block;
+    font-family: 'Poiret One', cursive;
+    font-size: 4.55em;
+    letter-spacing: 0.07em;
+    margin-bottom: 15px;
+    padding-left: 6px;
+    text-align: center;
+  }
+}
+.box-inset {
+  #first-page {
+    .logo {
+      margin: 82px auto 0px;
+    }
+  }
+}
+
+/* DefaultCountdown 
+-------------------------------------------------------------------------*/
+.my-defaultCountdown {
+  background: none;
+  margin-bottom: 14px;
+  margin-left: 1px;
+  overflow: hidden;
+
+  .countdown-show4 {
+    text-align:left;
+  }
+  span {
+    color:$myWhite; 
+    display: block;
+    text-align: center;
+
+    .countdown-section {
+      border-radius:2px;
+      border:2px solid $myWhite; 
+      display: inline-block;
+      display: inline-block;
+      float: none;
+      height: 200px;
+      margin: 0 32px 20px 0px;
+      min-width: 125px;
+      vertical-align: top;
+      vertical-align: top;
+
+      &:last-of-type {
+        margin: 0 0 20px 0px;
+      }
+    }
+
+    .countdown-amount {
+      color: $myWhite !important;
+      display: block;
+      font-family: 'Poiret One', cursive;
+      font-size: 6em;
+      margin-bottom: 5px;
+      margin-top: 25px;
+    }
+    .countdown-period {
+      font-family: 'Poiret One', cursive;
+      font-size: 1.5em;
+      letter-spacing: 0.08em;
+    }
+  }
+}
+
+.slider-viewport {
+  h2{
+    clear: both;
+    font-size: 1.1em;
+    font-weight: 300;
+    letter-spacing: 0.01em;
+    line-height: 1.4em;
+    margin: 0 0 37px 0;
+    padding: 0 10px;
+    text-align: center;
+  }
+
+}
+
+/* Subscribe Form
+---------------------------------------------------------------------------*/
+#mc_embed_signup {
+  margin:0 auto; 
+  overflow: hidden;
+  padding-bottom: 70px;
+  position:relative;
+  width: 100%;
+  @media(max-width:767px) {
+    padding-bottom: 40px;
+  }
+
+  h2 {
+    clear: both;
+    font-size: 1.1em;
+    font-weight: 300;
+    letter-spacing: 0.01em;
+    line-height: 1.4em;
+    margin: 0 0 37px 0;
+    padding: 0 10px;
+    text-align: center;
+  }
+  .mc-field-group, .form-group {
+    float: left;
+  }
+  .clear, .join-us {
+    float: right;
+  }
+  input {
+    background:none;
+    border-radius:2px;
+    border:2px solid #fff;
+    color: #fefefe;
+    font-size: 1.3em;
+    font-weight: 300;
+    height: 50px;
+    letter-spacing: -0.019em;
+    padding:0 15px;
+    width: 555px;
+  }
+  ::-webkit-input-placeholder {
+    color: #fefefe !important;
+    font-size: 0.9em;
+  }
+
+  ::-moz-placeholder {
+    color: #fefefe !important;
+    font-size: 0.9em;
+  }
+  :-moz-placeholder {
+    color: #fefefe !important;
+    font-size: 0.9em;
+  }
+  :-ms-input-placeholder {
+    color: #fefefe !important;
+    font-size: 0.9em;
+  }
+
+  input[type="submit"], .join-us {
+    background:rgba(0,255,191,0.5);
+    border-radius:2px;
+    border:none;
+    font-weight: 300;
+    min-height: 50px;
+    letter-spacing: 0.00em;
+    padding-top: 3px;
+    min-width: 165px;
+    
+    @include transition;
+
+    &:hover {
+      background:rgba(0,255,191,0.8);
+    }
+  }
+  .join-us {
+    font-size: 1em;
+    outline: none;
+  }
+  label[for="mce-EMAIL"] {
+    bottom:20px;
+    left:20%; 
+    position:absolute;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 2px;
+    display: block;
+    font-weight: 300;
+    padding: 9px 20px 11px 25px;
+    font-size: 0.8em;
+    opacity: 0;
+    @include transition;
+
+    &.my-hide{
+      opacity: 1;
+    }
+    
+    &.error {
+      &:before {
+        content: "*";
+        font-size: 14px;
+        left: 13px;
+        position:absolute;
+        top: 10px;
+      }
+    }
+  }
+
+   #email_message {
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 2px;
+    bottom: 5px;
+    color: #fff;
+    display: block;
+    font-size: 0.9em;
+    font-weight: 300;
+    height: 60px;
+    left:20%; 
+    padding: 9px 20px 11px 25px;
+    position:absolute;
+    width: 220px;
+  }
+  .form-message {
+      background: rgba(0, 0, 0, 0.5);
+      border-radius: 2px;
+      bottom: 5px;
+      color: #fff;
+      display: block;
+      font-size: 0.9em;
+      font-weight: 300;
+      height: 40px;
+      left:0%; 
+      padding: 9px 20px 11px 25px;
+      position:absolute;
+      @media(max-width:767px) {
+        text-align: center;
+      }
+    }
+  
+
+}
+
+/* 3d slider 
+--------------------------------------------------*/
+#content-box{
+  width: 100% !important;
+}
+
+.second-content {
+  .my-defaultCountdown {
+    height: 0 ;
+    opacity: 0;
+    overflow: hidden;
+  }
+}
+
+/* soc-icons
+------------------------------------------------------------------*/
+
+#soc-icons {
+  padding-bottom: 20px;
+  padding-left: 2px;
+  text-align: center;
+  width: 100%;
+
+  .soc-container {
+    @include transition;
+    display: inline-block;
+    margin-right: 7px;
+
+    &:last-of-type {
+      margin-right: 0;
+    }
+    
+    &:hover {
+      color: #01f6b9;
+      
+    }
+
+    .inner-container {
+      display: table-cell;
+      text-align: center;
+
+      a {
+        @include transition;
+        border-radius:50%;
+        border: 2px solid #fff;
+        color: #fff;
+        display: block;
+        height: 31px;
+        text-align: center;
+        width: 31px;
+        .fa{
+          line-height: 28px;
+          width: 27px;
+          height: 27px;
+          text-align: center;
+          display: block;
+          &:before {
+            line-height: 29px;
+            width: 27px;
+            height: 27px;
+            text-align: center;
+            display: block;
+          }
+        }
+
+        &:hover {
+          border: 2px solid #01f6b9;
+          color: #01f6b9;
+        }
+      }
+    }
+  }
+}
+
+
+/* ----------------------------------------------------------------------*/
+/* ------------------------- Second-Pages -------------------------------*/
+/* ----------------------------------------------------------------------*/
+
+#second-pages {
+  background: rgba(0, 0, 0, 0.5);
+  height: 100%;
+  left:0;
+  overflow:hidden;
+  padding: 0 0 60px 0;
+  position: absolute;
+  width: 100%;
+  z-index: 999;
+
+  .inner-content {
+    height: 100%;
+    opacity: 0;
+    position: relative;
+    // visibility: hidden;
+  }
+
+
+}
+/* Animation down up page
+------------------------------------------------------------------*/
+
+.my-animetion {
+  &.s-hidden, &.bg-block {
+    transition: top 0.4s ease;
+  }
+    
+  &.active {
+    transition: top 0.4s ease;
+  }
+
+  &.bg-block {
+    &.bg-block {
+      &.active {
+        transition: top 0.4s ease;
+      }
+    }
+  }
+  
+}
+
+/* Special page background with video
+------------------------------------------------------------------*/
+.video-bg {
+  #second-pages {
+    &.active {
+      background: rgba(0, 0, 0, 0.7);
+    }
+  }
+}
+
+/* Animate move to down page
+--------------------------------------------------------------------*/
+
+#first-page {
+  transition: opacity linear 0.5s;
+
+  &.opacity-active {
+    opacity: 0;
+    transition:visibility 0s linear 0.5s, opacity 0.5s linear ;
+    visibility: hidden;
+  }
+}
+#second-pages {
+  .inner-content {
+    transition:visibility 0s linear 0.5s, opacity 0.5s linear ;
+  }
+  &.opacity-active {
+    .inner-content {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+}
+
+.bg-block {
+  &.no-bg {
+    .container {
+      background:none;
+    }
+  }
+}
+#wrapper {
+  .blured-box {
+    transition:visibility 0s linear 0.5s, opacity 0.5s linear ;
+
+    &.opacity-active {
+      opacity: 1;
+      visibility:visible;
+    }
+  }
+}
+
+/* Tabs pages
+--------------------------------------------------------------------*/
+#second-pages {
+  .my-tabs{
+    overflow-y: auto;
+    overflow:hidden;
+  }
+  /* Tab navigation 
+  --------------------------------------------------------------------*/
+  .nav-tabs {
+    border:none;
+    display: table;
+    margin: 0 auto;
+    padding-top: 40px;
+    text-align: center;
+    width: 100%;
+
+    li:first-of-type {
+      float: left;
+    }
+    li:last-of-type {
+      float: right;
+    }
+    li {
+      height: 100px;
+
+      a {
+        @include transition;
+        background: none;
+        border-radius:0;
+        border:none;
+        color: #fff;
+        font-family: 'Poiret One', cursive;
+        font-size: 5.5em;
+        letter-spacing: 0.01em;
+        margin: 0;
+        opacity: 0.5;
+        padding:0;
+        text-transform: uppercase;
+
+        &:hover {
+          border-color:none;
+          border:none;
+          opacity: 1;
+          padding:0;
+        }
+      }
+      &.active {
+          border-bottom: 2px solid #01f6b9;
+        a {
+          background: none;
+          border:none;
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  /* tab-content 
+  --------------------------------------------------------------------*/
+  .tab-content {
+    position: relative;
+
+    > .tab-pane {
+      display: block;
+      height: 0 ;
+      width: 100%;
+
+      .row {
+        height: 0;
+        overflow: hidden;
+      }
+    }
+    > .tab-pane {
+      &.active {
+         height: auto;
+
+         .row {
+          height: auto;
+          overflow: visible;
+         }
+      }
+    }
+  }
+
+}
+.touch-device {
+  #second-pages {
+    .my-tabs{
+      overflow:auto;
+    }
+  }
+}
+
+/*-----------------------------------------------------------------------*/
+/*-------------------- General Style About & Contacts--------------------*/
+/*-----------------------------------------------------------------------*/
+
+#about, #contacts {
+  z-index: 999;
+}
+.box-inset {
+  #about {
+    overflow: hidden;
+  }
+  #contacts {
+    padding-top: 54px;
+  }
+  .box-input {
+    margin-bottom: 40px;
+  }
+}
+
+
+/*------------------------------------------------------------------------*/
+/*------------------------------ About Page ------------------------------*/
+/*------------------------------------------------------------------------*/
+#about {
+
+  /* Block Personnel
+  --------------------------------------------------------------------*/
+  #personnel {
+    padding-top: 64px;
+
+    .inner-personnel {
+      margin: 0 auto;
+      margin-bottom: 53px;
+      max-width: 170px;
+      width: 100%;
+
+      .img-block {
+        border-radius: 50%;
+        border: 2px solid #fff;
+        height: 170px;
+        margin-bottom: 27px;
+        overflow: hidden;
+        padding: 3px;
+        width: 170px;
+        .innner-img-block {
+          border-radius: 50%;
+          height: 100%;
+          overflow: hidden;
+          width: 100%;
+  
+          img {
+            height: auto;
+            width: 100%;
+          }
+        }
+      }
+
+      h2 {
+        font-size: 1.6em;
+        font-weight: 300;
+        letter-spacing: -0.02em;
+        margin-bottom: 3px;
+        text-align: center;
+      }
+      span {
+        display: block;
+        font-size: 0.9em;
+        font-weight: 300;
+        text-align: center;
+      }
+    }
+  }
+  
+  /* Block data info
+  --------------------------------------------------------------------*/
+  #data {
+
+    h2 {
+      font-size: 1.7em;
+      font-weight: 300;
+      letter-spacing: 0.06em;
+      margin-bottom: 25px;
+    }
+
+    p {
+      font-size: 1.1em;
+      font-weight: 300;  
+      letter-spacing: 0.017em;
+      line-height: 1.41em;
+      margin-bottom: 15px; 
+    }
+  }
+}
+
+/* CaruFredSel
+--------------------------------------------------------------*/
+
+.wrapper-slider {
+  margin-top: 19px;
+  position: relative;
+
+    .inner {
+      min-width: 290px;
+      width: 100%;
+  
+    }
+    .carousel-wrapper {
+      box-sizing: border-box;
+      width: 100%;
+    }
+    .carousel {
+      height: 300px;
+      max-width: 800px;
+      overflow: hidden;
+
+      > div {
+        display: block;
+        float: left;
+        height: 100%;
+        //max-height: 200px !important;
+      }
+
+      img {
+        height: auto;
+        max-width: 100%;
+      }
+
+      .box-content {
+        float: none;
+        margin: 0 auto;
+        max-width: 580px;
+        text-align: center;
+      }
+      h3 {
+        font-size: 1.8em;
+        font-weight: 300;
+        letter-spacing: 0.07em;
+        margin-bottom: 26px;
+        margin-top: 4px;
+        @media(max-width:767px) {
+          font-size: 1.6em;
+          margin-top: 26px;
+        }
+      }
+      p {
+        font-size: 1.1em;
+        font-weight: 300;
+        letter-spacing: 0.06em;
+        line-height: 1.47em;
+        display: block;
+      }
+    }
+    .pager-wrapper {
+      height: 120px;
+      overflow: hidden;
+      width: 100%;
+      z-index: 2;
+      @media(max-width:767px) {
+        height: 75px;
+      }
+    }
+    .pager a {
+      cursor: pointer;
+      display: block;
+      float: left;
+      height: 80px;
+      margin:10px 20px;
+      opacity: 0.5;
+      padding: 10px;
+      text-align: center;
+      width: 80px;
+      
+      @media(max-width:480px) {
+        margin: 10px 10px;
+      }
+      &:hover {
+        opacity: 0.8;
+      }
+      
+      &.selected {
+        opacity: 1;
+      }
+
+      img{
+        height: auto;
+        width: 100%;
+        @media(max-width:767px) {
+          width: 35px;
+        }
+      }
+    }
+    .prev, .next {
+      height: 53px;
+      position:absolute;
+      top: 9%;
+      width: 26px;
+      @media(max-width:480px) {
+        top: 6%;
+      }
+    }
+    .prev {
+      left:0;
+      background: url(../images/arrow/left-white.svg);
+      background-position: 0 0;
+      background-repeat: no-repeat;
+    }
+    .next {
+      right: 0;
+      background: url(../images/arrow/right-white.svg);
+      background-position: -10px 0px;
+      background-repeat: no-repeat;
+    }
+}
+
+/* Contacts 
+--------------------------------------------------------------------*/
+
+/* Contactform */
+
+#contactform {
+  textarea,
+  input {
+    @include transition;
+    background:none;
+    border:none;
+    border-bottom:2px solid #fff;
+    border-radius:0;
+    color: #fff;
+    font-size: 1em;
+    height: 25px;
+    opacity: 0.4;
+    padding:0;
+    width: 100%; 
+    min-height: 25px;
+
+    &:focus {
+      box-shadow:none;
+      opacity: 1;
+    }
+  }
+  textarea {
+    height: 145px;
+  }
+  label {
+    &.error {
+      background: rgba(0, 0, 0, 0.5);
+      border-radius: 2px;
+      display: block;
+      font-weight: 300;
+      min-height: 40px;
+      padding: 9px 20px 11px 25px;
+      position:relative;
+      margin-top: 5px;
+  
+      &:before {
+        content: "*";
+        font-size: 14px;
+        left: 13px;
+        position: absolute;
+        top: 10px;
+      }
+
+      &.valid {
+        display: none !important;
+      }
+    }
+
+  }
+
+  #submit {
+    @include transition;
+    border: none;
+    display: block;
+    font-size: 1em;
+    font-weight: 300;
+    min-height: 50px;
+    letter-spacing: 0;
+    margin: 40px auto 43px;
+    min-width: 165px;
+    padding: 3px 28px 6px 28px;
+    text-transform: none;
+    background: rgba(0, 255, 191, 0.5);
+
+    &:hover {
+      background: rgba(0, 255, 191, 0.8);
+    }
+  }
+
+  placeholder {
+    color: #fff;
+    font-size: 1em;
+  }
+  ::-webkit-input-placeholder {
+    color: #fff;
+    font-size: 1em;
+  }
+
+  ::-moz-placeholder {
+    color: #fff;
+    font-size: 1em;
+  }
+  :-moz-placeholder {
+    color: #fff;
+    font-size: 1em;
+  }
+  :-ms-input-placeholder {
+    color: #fff;
+    font-size: 1em;
+  }
+
+  p{
+  }
+
+  #success {
+    position: relative;
+    span {
+      background: rgba(0, 0, 0, 0.5);
+      border-radius: 2px;
+      bottom: 5px;
+      color: #fff !important;
+      display: block;
+      font-size: 0.9em;
+      font-weight: 300;
+      min-height: 40px;
+      left: 0%;
+      padding: 9px 20px 11px 25px;
+      position: absolute;
+      @media(max-width:767px) {
+        bottom: 1px;
+      }
+    }
+  }
+}
+
+/* --- Block Maps ---*/
+#map-canvas {
+  height: 360px;
+  margin-bottom: 22px;
+  margin-top: 6px;
+  width: 100%;
+}
+
+
+
+/* Under-contruction Page 
+---------------------------------------------------------------------------*/
+
+#first-page {
+  &.under-contruction {
+    background: rgba(0, 0, 0, 0.5);
+
+    .coming-soon{
+      letter-spacing: 0.06em;
+      line-height: 1.38em;
+      margin-bottom: 23px;
+    }
+    .site-undeconstruction {
+      clear: both;
+      display: block;
+      font-size: 1.1em;
+      font-weight: 300;
+      letter-spacing: 0.01em;
+      line-height: 1.4em;
+      margin: 0 0 41px 0;
+      padding: 0 10px;
+      text-align: center;
+    }
+    textarea {
+      margin-top: 20px;
+    }
+    #contactform {
+      #submit {
+        margin: 40px auto 33px;
+        padding: 0px 21px 3px 21px;
+      }
+    }
+  }
+}
+
+/*  BLURE Side style 
+---------------------------------------------------------------------------*/
+.double-img-cont {
+  overflow: hidden;
+}
+.blur-page {
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.blur-bgs {
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+}
+
+#double-img {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+
+
+
+/* FIX iPad;.*CPU.*OS 7
+------------------------------------------*/
+@media (orientation:landscape) {
+    html.ipad.ios7 > body {
+      bottom: 0;
+      height: 672px !important;
+      position: fixed;
+      width:100%;
+     
+      #second-pages {
+        &.s-hidden {
+          margin-top: 20px;
+        }
+        .my-tabs {
+          margin-top: -20px !important;
+        }
+      }
+    }
+}
+@media all and (-webkit-min-device-pixel-ratio:0) {
+  #second-pages {
+    &.s-hidden {
+      //margin-top: 0px !important;
+    }
+  }
+}
+
+
+/* RETINA 
+---------------------------------------------------*/
+@media (-webkit-min-device-pixel-ratio: 2) {
+  .replace-2x {
+    opacity: 0;
+    
+    &.loaded {
+      -webkit-transition: opacity .2s linear;
+      opacity: 1;
+      transition: opacity .2s linear;
+    }
+  }
+}
+
+// @media (-webkit-min-device-pixel-ratio: 2) {
+//   .part-2 { 
+//     background-image: url(../images/slider/slide-5@2x.jpg); 
+//   }
+// }
+
+
+
+// MEDIA REQUIRES
+@import "responsive";
+@import "screen";
+

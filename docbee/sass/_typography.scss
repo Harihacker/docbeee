@@ -1,0 +1,545 @@
+/* ----------------------------------------------------*/
+/* ------------------ TYPOGRAPHY CSS ------------------*/
+/* --------------------------------------------------- */
+
+@mixin transition($transition1: 0.1s){
+  -webkit-transition: all $transition1 ease-in-out $transition1;
+  -moz-transition: all $transition1 ease-in-out $transition1;
+  -o-transition: all $transition1 ease-in-out $transition1;
+  transition: all $transition1 ease-in-out $transition1;
+}
+$myRed:#ff2a5c;
+/*--------------------------------------*/
+html, body {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 100%;
+  margin: 0;
+  padding: 0;
+}
+body{
+  &.typography{
+    color: #222;
+    overflow: auto;
+    
+    #wrapper{
+      padding-top: 120px;
+      overflow:auto;
+    }
+  }
+  &.intro{
+    #wrapper{
+      overflow:auto;
+    }
+  }
+}
+
+
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  letter-spacing: 0.011em;
+  margin-top: 0;
+}
+
+h1 {
+  font-size: 2.95em;
+  margin-bottom: 27px;
+}
+
+h2 {
+  font-size: 2.55em;
+  margin-bottom: 27px;
+}
+
+h3 {
+  font-size: 2.35em;
+  letter-spacing: 0.0015em;
+  margin-bottom: 24px;
+}
+
+h4 {
+  font-size: 2.0em;
+  letter-spacing: 0em;
+  margin-bottom: 22px;
+}
+
+h5 {
+  font-size: 1.5em;
+  letter-spacing: 0em;
+  margin-bottom: 23px;
+}
+
+h6 {
+  font-size: 1.2em;
+  letter-spacing: -0.04em;
+  margin-bottom: 20px;
+}
+
+/* gonfigure css h1 */
+
+.page-tpg {
+  padding-bottom: 20px;
+}
+
+.page-tpg-img {
+  margin-bottom: 69px;
+}
+.page-tpg-list {
+  margin-bottom: 35px;
+}
+
+.page-tpg-table {
+  margin: 16px 0 34px 0;
+}
+
+.clear-tpg {
+  padding: 8px;
+}
+
+.page-tpg-blockquotes {
+  margin: 26px 0 34px 0;
+}
+.row-button{
+  margin-bottom: 200px;
+}
+
+/* and gonfigure css h1 */
+.default-links{
+  margin: 3px 0 21px -6px;
+  padding: 0;
+
+  li{
+    margin-bottom: 8px;
+  }
+}
+a {
+  letter-spacing: 0.01em;
+  &:link, &.default {
+    color: $myRed;
+    font-size: 1.155em;
+    outline: none;
+  }
+  &:visited, &.default-visited {
+    color: #ff6287;
+  }
+  &:hover, &.default-hover {
+    color: #ff6287;
+    text-decoration: underline;
+  }
+  &:active, &.default-active {
+    color: #ff2a5c;
+    text-decoration: underline;
+  }
+  &:active, &:hover, &:focus, &:visited {
+    text-decoration: none;
+  }
+}
+
+p {
+  font-size: 0.9em;
+  line-height: 1.72em;
+  margin-bottom: 24px;
+}
+
+figcaption {
+  color: #999;
+  font-size: 0.75em;
+  line-height: 1.8em;
+  letter-spacing: 0.0em;
+}
+
+img {
+  margin-bottom: 15px;
+}
+
+div {
+  &.row-mb {
+    margin-bottom: 54px;
+  }
+  &.row-list{
+    margin-bottom: 45px;
+  }
+  &.row-tables{
+    margin-bottom: 64px;
+  }
+  &.row-blockquotes{
+    margin-bottom: 66px;
+  }
+  &.row-mb2 {
+    margin-bottom: 10px;
+  }
+  &.row-mb2-2 {
+    margin-bottom: 8px;
+  }
+  &.h-mb{
+    margin-bottom: 9px;
+  }
+  .default-img{
+    margin-bottom: 20px;
+  }
+}
+
+.row-mb2-2, .row-mb2 {
+  .white-input, .select-white, .green-input, .green-select {
+    float: left;
+    margin-right: 71px;
+  }
+}
+
+/* ---------------------------- wp-caption alignleft -------------------------*/
+.wp-caption {
+  width: 220px;
+}
+.alignleft {
+  float: left;
+  margin:7px 20px 20px 0;
+}
+.alignright {
+  float: right;
+  margin:0 0 20px 20px;
+}
+.aligncenter  {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ---------------------- style table --------------------------------- */
+
+table {
+  border: 1px solid #e9e9e9;
+  width: 100%;
+  th {
+    background: #f9f9f9;
+    color: #222;
+    font-weight: 700;
+    border: 1px solid #e9e9e9;
+    font-size: 0.75em;
+    line-height: 1.55;
+    padding: 15px 20px 14px 20px;
+    text-align: center;
+  }
+  td {
+    border: 1px solid #e9e9e9;
+    font-size: 0.75em;
+    line-height: 1.55;
+    padding: 15px 20px 14px 20px;
+    text-align: center;
+    color: #111;
+    font-size: 0.85em;
+  }
+}
+
+/* ------------------------ style blockquote ------------------------- */
+
+blockquote {
+  border: none;
+  font-weight: 300;
+  margin-bottom: 67px;
+  margin-top: 47px;
+  padding-top: 26px;
+  position: relative;
+  text-align: center;
+  span {
+    background-image: url(../images/blockquote-bg.png);
+    background-position: 0 center;
+    background-repeat: no-repeat;
+    font-size: 1.25em;
+    line-height: 1.7em;
+    padding-bottom: 4px;
+    padding-left: 60px;
+  }
+  footer {
+    &:before {
+      display: none;
+    }
+    color: #aaa;
+    font-size: 0.7em;
+    font-weight: 700;
+    margin-top: 22px;
+    text-transform: uppercase;
+  }
+  &:before {
+    background: rgba(0, 0, 0, 0.13);
+    content: ' ';
+    height: 2px;
+    left: 50%;
+    margin-left: -20px;
+    position: absolute;
+    top: -2px;
+    width: 40px;
+  }
+}
+
+/* ----------------------- style input --------------------------------- */
+
+textarea {
+  outline: none;
+  resize: none;
+  resize: vertical;
+}
+
+input {
+    outline: none;
+    resize: none;
+  &[type="text"] {
+    border-radius: 2px;
+    border: 1px solid #e7e7e7;
+    color: #777;
+    font-size: 1.0em;
+    height: 40px;
+    padding: 2px 12px 0 11px;
+    width: 250px;
+  }
+  &[type="radio"] {
+    left: -9999px;
+    position: absolute;
+  }
+  &[type="checkbox"] {
+    left: -9999px;
+    position: absolute;
+    + label:before {
+      background-image: url(../images/checkbox-bg.png);
+      background-position: -3px -3px;
+      background-repeat: no-repeat;
+      content: ' ';
+      display: inline-block;
+      height: 22px;
+      left: 25px;
+      position: absolute;
+      top: 9px;
+      width: 22px;
+    }
+  }
+  &[type="radio"]:checked + label:before, &[type="checkbox"]:checked + label:before {
+    background-position: -3px -58px;
+  }
+  &[type="radio"] + label, &[type="checkbox"] + label {
+    color: #222;
+    cursor: pointer;
+    font-size: 0.859em;
+    font-weight: normal;
+    margin-left: 40px;
+    margin-top: 12px;
+  }
+  &[disabled="disabled"] + label {
+    opacity: 0.4;
+  }
+  &[type="radio"] + label:before {
+    background-image: url(../images/radio-bg.png);
+    background-position: -3px -3px;
+    background-repeat: no-repeat;
+    content: ' ';
+    display: inline-block;
+    height: 22px;
+    left: 24px;
+    position: absolute;
+    top: 10px;
+    width: 23px;
+  }
+}
+
+input:-webkit-autofill{
+  background-color:none !important;
+}
+::-webkit-input-placeholder {
+  color: #fefefe;
+  font-size: 0.9em;
+}
+
+::-moz-placeholder {
+  color: #fefefe;
+  font-size: 0.9em;
+}
+:-moz-placeholder {
+  color: #fefefe;
+  font-size: 0.9em;
+}
+:-ms-input-placeholder {
+  color: #fefefe;
+  font-size: 0.9em;
+}
+
+/* --------------------------- style select ------------------------------ */
+
+.jq-selectbox {
+  min-width: 250px;
+
+  .jq-selectbox__select {
+    background: #fff;
+    border-radius: 2px;
+    border: 1px solid #e7e7e7;
+    box-shadow: none;
+    color: #777;
+    font-size: 1.2em;
+    height: 40px;
+    padding-left: 10px;
+    padding-top: 5px;
+    @include transition;
+
+    &:hover {
+      background: #fff;
+      .jq-selectbox__trigger {
+        opacity: 1;
+      }
+    }
+
+    .jq-selectbox__trigger {
+      border: none;
+      float: right;
+      margin: 7px 10px 0 0;
+      opacity: 0.6;
+      @include transition; 
+      
+      .jq-selectbox__trigger-arrow {
+        background-image: url(../images/select-arrow2.svg);
+        background-position: center center;
+        background-repeat: no-repeat;
+        border: none;
+        height: 15px;
+        right: 5px;
+        top: 6px;
+        width: 9px;
+      }
+    }
+
+    .jq-selectbox__select-text {
+      color: #777;
+      font-size: 0.77em;
+      opacity: 0.9;
+      padding-left: 3px;
+      width: 190px !important;
+      float: left;
+      padding-top: 0px;
+    }
+
+  }
+
+  .jq-selectbox__dropdown {
+    background: #fff;
+    border-radius: 0;
+    border: 1px solid #e7e7e7;
+    box-shadow: none;
+    top: 40px;
+    width: 100%;
+    @include transition;
+
+    ul{
+      padding:0;
+      margin: 0;
+      li {
+        font-size: 0.99em;
+        height: 40px;
+        margin-bottom: 0;
+        padding: 9px 12px 0 12px;
+        @include transition;
+      }
+    }
+  }
+
+}
+
+.jq-selectbox.focused {
+  .jq-selectbox__select {
+    border: 1px solid #e7e7e7 ;
+  }
+}
+
+.jq-selectbox.opened {
+  .jq-selectbox__dropdown {
+    height: auto;
+    opacity: 1;
+    overflow: visible;
+  }
+}
+.jq-selectbox li {
+  &.selected, &:hover {
+    background-color: $myRed;
+    color: #fff;
+  }
+}
+
+/* ----------------------- style button ------------------------------------- */
+
+.btn-default {
+  border-radius: 2px;
+  font-size: 0.75em;
+  height: 40px;
+  letter-spacing: 0.06em;
+  margin: 10px 6px 10px 0;
+  outline: none;
+  padding: 3px 29px 0 29px;
+  text-transform: uppercase;
+  @include transition;
+  
+  &:hover, &.button-hover {
+    background: #ff6287;
+    border:1px solid #e8597b;
+  }
+  &:active, &.button-active {
+    box-shadow: inset 0 2px 0px #e8597b;
+    background: #ff6287;
+    border:1px solid #e8597b;
+  }
+  &:focus,  &:active,  &:hover, &.active.focus, &.active:focus{
+    outline:none !important;
+  }
+}
+
+
+
+/* ---------------------------- style OL UL --------------------------------- */
+
+ol, ul {
+  margin: 7px 0 10px 0;
+  padding: 0 0 0 25px;
+}
+
+ol {
+  li {
+    font-size: 0.85em;
+    margin-bottom: 5px;
+  }
+}
+
+ul {
+  li {
+    font-size: 0.84em;
+    margin-bottom: 6px;
+  }
+  list-style-image: url(../images/li-img.png); 
+}
+
+
+/* ---------------------------- Input -------------------------------*/
+
+input {
+  background: #fff;
+  border-radius: 0;
+  border: 1px solid #e5e5e5;
+  box-shadow: none;
+}
+
+/* ---------------------------- textarea -------------------------------*/
+
+textarea {
+  background: #fff;
+  border-radius: 0 ;
+  border: 1px solid #e5e5e5 ;
+  box-shadow: none ;
+}
+
+/* ------------------------------  element-img ----------------------------- */
+
+#element-img img {
+  margin-right: 20px;
+  &:last-of-type {
+    margin-right: 0;
+  }
+}
+
